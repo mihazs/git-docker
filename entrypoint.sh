@@ -1,8 +1,8 @@
 #!/bin/sh
 
 REPOSRC=$1
-LOCALREPO=$2
+LOCALSRC=$1
 
-git clone "$REPOSRC" . 2> /dev/null || git pull
+git clone "$REPOSRC" "$LOCALSRC" 2> /dev/null || git -C "$LOCALSRC" pull
 
-/usr/local/bin/webhook
+/usr/local/bin/webhook -verbose -hooks=/etc/webhook/hooks.json -hotreload
