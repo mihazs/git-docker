@@ -9,4 +9,4 @@ services:
     ports:
       - "9000"
     environment:
-      REPO_URL: https://fb9602bc9c17c562d30ce1c5f7dec3dc8cbc35dd@github.com/mihazs/simonempreendi-theme.git
+    
