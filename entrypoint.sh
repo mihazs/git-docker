@@ -31,11 +31,11 @@ cat > /etc/webhook/hooks.json <<EOF
                 "match":
                 {
                   "type": "value",
-                  "value": "tag",
+                  "value": "refs/heads/master",
                   "parameter":
                   {
                     "source": "payload",
-                    "name": "ref_type"
+                    "name": "ref"
                   }
                 }
               }
