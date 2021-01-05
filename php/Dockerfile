@@ -18,6 +18,7 @@ RUN apk --update add \
 	php7-xml \
 	php7-simplexml \
 	php7-xmlwriter \
+	php7-ctype \
 	--repository http://nl.alpinelinux.org/alpine/edge/testing/ && rm /var/cache/apk/*
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer 
