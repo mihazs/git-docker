@@ -41,15 +41,3 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin -
 RUN rm -rf /var/scripts/redeploy.sh
 COPY redeploy.sh /var/scripts/redeploy.sh
 RUN chmod +x /var/scripts/redeploy.sh
-
-RUN cd /tmp && \
-    wget https://github.com/php-memcached-dev/php-memcached/archive/php7.zip && \
-    unzip php7.zip && \
-    cd php-memcached-php7 && \
-    phpize7 || return 1 && \
-    ./configure --prefix=/usr --disable-memcached-sasl --with-php-config=php-config7 || return 1 && \
-    make || return 1 && \
-    make INSTALL_ROOT="" install || return 1 && \
-    install -d "/etc/php7/conf.d" || return 1 && \
-    echo "extension=memcached.so" > /etc/php7/conf.d/20_memcached.ini && \
-    cd /tmp && rm -rf php-memcached-php7 && rm php7.zip
